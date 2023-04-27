@@ -1,0 +1,2 @@
+<h2><?= $name ?? ''; ?></h2>
+<pre><?= var_dump($session) ?? ''; ?></pre>

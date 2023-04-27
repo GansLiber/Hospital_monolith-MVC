@@ -29,6 +29,7 @@ class Auth
     public static function attempt(array $credentials): bool
     {
         if ($user = self::$user->attemptIdentity($credentials)) {
+            Session::set('cred', $credentials);
             self::login($user);
             return true;
         }

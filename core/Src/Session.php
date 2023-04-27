@@ -18,4 +18,9 @@ class Session
     {
         unset($_SESSION[$name]);
     }
+
+    public static function getAll()
+    {
+        return $_SESSION;
+    }
 }

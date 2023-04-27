@@ -19,6 +19,7 @@
       <?php
       else:
           ?>
+        <a href="<?= app()->route->getUrl('/nick') ?>">Nick</a>
         <a href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->name ?>)</a>
       <?php
       endif;
