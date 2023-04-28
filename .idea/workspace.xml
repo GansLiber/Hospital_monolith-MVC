@@ -1,38 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b4f545bb-0729-4267-bfee-7e53068d3211" name="Changes" comment="" />
+    <list default="true" id="b4f545bb-0729-4267-bfee-7e53068d3211" name="Changes" comment="сделал статичную страницу пациентов, хочу заняться связыванием моделей для вывода ролей пользователей">
+      <change beforePath="$PROJECT_DIR$/.idea/MCVphpPractice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MCVphpPractice.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/Site.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/Site.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Role.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/site/cabinet.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/cabinet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/site/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/site/signup.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/bus" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/container" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/collections" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/database" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/macroable" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/events" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/support" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/pipeline" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/nikic/fast-route" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="2Oit5pwkPTEQlosKhnqLcFhM81f" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/nick/progs/OSPanel/domains/pop-it-mvc/MCVphpPractice",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/nick/progs/OSPanel/domains/pop-it-mvc/MCVphpPractice&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\nick\progs\OSPanel\domains\pop-it-mvc\MCVphpPractice" />
       <recent name="C:\nick\progs\OSPanel\domains\MCVphpPractice" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\nick\progs\OSPanel\domains\pop-it-mvc\MCVphpPractice\core\Src\Auth" />
       <recent name="C:\nick\progs\OSPanel\domains\pop-it-mvc\MCVphpPractice\app\Controller" />
     </key>
   </component>
@@ -51,11 +99,109 @@
       <workItem from="1682254331571" duration="6681000" />
       <workItem from="1682299924352" duration="2110000" />
       <workItem from="1682302136973" duration="4156000" />
-      <workItem from="1682311409887" duration="1765000" />
+      <workItem from="1682311409887" duration="11488000" />
+      <workItem from="1682480731063" duration="21361000" />
+      <workItem from="1682591678837" duration="16423000" />
+      <workItem from="1682676138319" duration="14213000" />
     </task>
+    <task id="LOCAL-00001" summary="пути переписаны">
+      <created>1682317982557</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682317982557</updated>
+    </task>
+    <task id="LOCAL-00002" summary="стабильный билд">
+      <created>1682483257844</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682483257844</updated>
+    </task>
+    <task id="LOCAL-00003" summary="выводятся title на запрос пути go">
+      <created>1682486742782</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682486742782</updated>
+    </task>
+    <task id="LOCAL-00004" summary="выводятся title по пагинации ?id">
+      <created>1682490122636</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682490122636</updated>
+    </task>
+    <task id="LOCAL-00005" summary="заверстал страницу регистрации">
+      <created>1682490718427</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682490718427</updated>
+    </task>
+    <task id="LOCAL-00006" summary="работает логин, регистрация, редиректы">
+      <created>1682511899168</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682511899168</updated>
+    </task>
+    <task id="LOCAL-00007" summary="добавил новую страницу, потыкался, попробовал выводить всякие вещи">
+      <created>1682597035821</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682597035821</updated>
+    </task>
+    <task id="LOCAL-00008" summary="заверстал бутстрапом авторизацию">
+      <created>1682612503786</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682612503786</updated>
+    </task>
+    <task id="LOCAL-00009" summary="доработал">
+      <created>1682677025526</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682677025527</updated>
+    </task>
+    <task id="LOCAL-00010" summary="сделал статичную страницу пациентов, хочу заняться связыванием моделей для вывода ролей пользователей">
+      <created>1682688841347</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682688841347</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="пути переписаны" />
+    <MESSAGE value="стабильный билд" />
+    <MESSAGE value="выводятся title на запрос пути go" />
+    <MESSAGE value="выводятся title по пагинации ?id" />
+    <MESSAGE value="заверстал страницу регистрации" />
+    <MESSAGE value="работает логин, регистрация, редиректы" />
+    <MESSAGE value="добавил новую страницу, потыкался, попробовал выводить всякие вещи" />
+    <MESSAGE value="заверстал бутстрапом авторизацию" />
+    <MESSAGE value="доработал" />
+    <MESSAGE value="сделал статичную страницу пациентов, хочу заняться связыванием моделей для вывода ролей пользователей" />
+    <option name="LAST_COMMIT_MESSAGE" value="сделал статичную страницу пациентов, хочу заняться связыванием моделей для вывода ролей пользователей" />
   </component>
 </project>

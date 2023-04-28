@@ -31,6 +31,10 @@ class User extends Model implements IdentityInterface
         });
     }
 
+    public function role(){
+        return $this->belongsTo(Role::class, 'id_role');
+    }
+
     //Выборка пользователя по первичному ключу
     public function findIdentity(int $id)
     {

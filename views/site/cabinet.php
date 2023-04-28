@@ -12,7 +12,7 @@
     <p>Фамилия: <?= $user->surname ?></p>
     <p>Отчество: <?= $user->patronymic ?></p>
     <p>Дата рождения: <?= $user->data_birth ?></p>
-    <p>Роль: <?= $user->id_role ?></p>
+    <p>Роль: <?= $user->role->role ?></p>
           <p>----------------</p>
     <?php
     }

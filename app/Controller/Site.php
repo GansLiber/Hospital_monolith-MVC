@@ -46,6 +46,7 @@ class Site
             'users'=>$users
         ]);
     }
+
     public function patients(): string
     {
         $users = User::all();
