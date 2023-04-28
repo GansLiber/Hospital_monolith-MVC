@@ -31,6 +31,20 @@ class Site
         ]);
     }
 
+    public function cabinet(): string
+    {
+        $name = User::get('name');
+        $surname = User::get('surname');
+        $patron = User::get('patronymic');
+        $dataBirth = User::get('patronymic');
+        return new View('site.cabinet', [
+            'name' => $name,
+            'surname' => $surname,
+            'patronymic' => $patron,
+            'data_birth' => $dataBirth
+        ]);
+    }
+
     public function signup(Request $request): string
     {
         if ($request->method === 'POST' && User::create($request->all())) {

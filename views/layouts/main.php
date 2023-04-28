@@ -37,6 +37,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="<?= app()->route->getUrl('/signup') ?>">Добавить пользователя</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?= app()->route->getUrl('/cabinet') ?>">Кабинет</a>
+              </li>
             <?php
             endif;
             ?>

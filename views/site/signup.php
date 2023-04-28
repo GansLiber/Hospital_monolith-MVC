@@ -41,6 +41,10 @@
       <option value="2">Терапевт</option>
     </select>
   </div>
+  <div class="mb-3" id='date-field'>
+    <label for="date" class="form-label">Дата рождения</label>
+    <input type="date" class="form-control" name="date" id="date">
+  </div>
   <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
 </form>
 
