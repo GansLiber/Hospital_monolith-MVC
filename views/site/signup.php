@@ -36,7 +36,7 @@
   </div>
   <div class="mb-3" id='role-field'>
     <label for="specialization" class="form-label">Роль</label>
-    <select class="form-select" name="id_role" id="role">
+    <select class="form-select" name='id_specialization' id="role">
       <option value="1">Хирург</option>
       <option value="2">Терапевт</option>
     </select>
