@@ -33,11 +33,8 @@ class Site
 
     public function signup(Request $request): string
     {
-        echo ($request->method), '&nbsp', 'gg';
         if ($request->method === 'POST' && User::create($request->all())) {
-            if (Auth::attempt($request->all())) {
-                app()->route->redirect('/hello');
-            }
+            return new View('site.signup', ['message' => 'Пользователь добавлен']);
         }
         return new View('site.signup');
     }

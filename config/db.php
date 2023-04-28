@@ -4,8 +4,8 @@ return [
     'host' => 'localhost',
     'database' => 'MVCpoliclinic',
     'username' => 'root',
-    'password' => '',
+    'password' => 'QWEasd123',
     'charset' => 'utf8',
-    'collation' => 'utf8_unicode_ci',
+    'collation' => 'utf8_general_ci',
     'prefix' => '',
 ];

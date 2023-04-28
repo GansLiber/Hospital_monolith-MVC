@@ -13,23 +13,50 @@
 </head>
 <body>
 <header>
-  <nav>
-    <a href="<?= app()->route->getUrl('/hello') ?>">Главная</a>
-      <?php
-      if (!app()->auth::check()):
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="<?= app()->route->getUrl('/hello') ?>">Главная</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+            <?php
+            if (!app()->auth::check()):
+                ?>
+              <li class="nav-item">
+                <a class="nav-link" href="<?= app()->route->getUrl('/login') ?>">Вход</a>
+              </li>
+
+            <?php
+            else:
+                ?>
+              <li class="nav-item">
+                <a class="nav-link" href="<?= app()->route->getUrl('/nick') ?>">Nick</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?= app()->route->getUrl('/signup') ?>">Добавить пользователя</a>
+              </li>
+            <?php
+            endif;
+            ?>
+        </ul>
+          <?php
+          if (app()->auth::check()):
+              ?>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->name ?>)</a>
+              </li>
+            </ul>
+          <?php
+          endif;
           ?>
-        <a href="<?= app()->route->getUrl('/login') ?>">Вход</a>
-        <a href="<?= app()->route->getUrl('/signup') ?>">Регистрация</a>
-      <?php
-      else:
-          ?>
-        <a href="<?= app()->route->getUrl('/nick') ?>">Nick</a>
-        <a href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->name ?>)</a>
-      <?php
-      endif;
-      ?>
+      </div>
+    </div>
   </nav>
 </header>
+
 <main>
     <?= $content ?? '' ?>
 </main>
