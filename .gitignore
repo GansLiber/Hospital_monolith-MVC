@@ -1,0 +1,6 @@
+/.idea/
+/vendor/
+composer.lock
+db.php
+php.xml
+workspace.xml
