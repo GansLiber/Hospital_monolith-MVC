@@ -36,12 +36,21 @@ class Site
         $name = User::get('name');
         $surname = User::get('surname');
         $patron = User::get('patronymic');
-        $dataBirth = User::get('patronymic');
+        $dataBirth = User::get('data_birth');
+        $users = User::all();
         return new View('site.cabinet', [
             'name' => $name,
             'surname' => $surname,
             'patronymic' => $patron,
-            'data_birth' => $dataBirth
+            'data_birth' => $dataBirth,
+            'users'=>$users
+        ]);
+    }
+    public function patients(): string
+    {
+        $users = User::all();
+        return new View('site.patients', [
+            'users'=>$users
         ]);
     }
 

@@ -51,4 +51,8 @@ class User extends Model implements IdentityInterface
             'password' => md5($credentials['password']
             )])->first();
     }
+
+    public function getAll(){
+        return self::all();
+    }
 }
