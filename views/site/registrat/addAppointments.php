@@ -1,11 +1,11 @@
 <div style='display: flex'>
-  <h2 style='margin-right: 10px'>Добавление в систему</h2>
+  <h2 style='margin-right: 10px'>Запись пациента</h2>
   <h3 style='color: #1334bb;'><?= $message ?? ''; ?></h3>
 </div>
 
 <div class="row">
   <div class="col-md-6">
-    <h3>Регистрация нового пользователя</h3>
+    <h3>Новая запись</h3>
     <form method='post'>
       <div class="col-md-6">
         <label for="role" class="form-label">Роль</label>
@@ -57,24 +57,3 @@
       <?= require_once 'helpers/addCabinet.php' ?>
   </div>
 </div>
-
-<script>
-  const roleSelect = document.getElementById('role')
-  const positionField = document.getElementById('position-field')
-  const roleField = document.getElementById('role-field')
-
-  roleSelect.addEventListener('change', () => {
-    const selectedRole = roleSelect.value
-
-    if (selectedRole === '1') { // Доктор
-      positionField.style.display = 'block'
-      roleField.style.display = 'block'
-    } else if (selectedRole === '2') { // Регистратор
-      positionField.style.display = 'none'
-      roleField.style.display = 'none'
-    } else { // Админ
-      positionField.style.display = 'none'
-      roleField.style.display = 'none'
-    }
-  })
-</script>

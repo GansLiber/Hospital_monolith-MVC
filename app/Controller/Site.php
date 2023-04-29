@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Model\Cabinet;
 use Model\Post;
 use Src\Session;
 use Src\View;
@@ -52,6 +53,14 @@ class Site
         $users = User::all();
         return new View('site.patients', [
             'users'=>$users
+        ]);
+    }
+
+    public function addCabinet(): string
+    {
+        $cabinets = Cabinet::all();
+        return new View('site.signup', [
+            'cabinets'=>$cabinets
         ]);
     }
 
