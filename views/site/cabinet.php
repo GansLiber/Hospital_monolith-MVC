@@ -11,8 +11,8 @@
     <p>Имя: <?= $user->name ?></p>
     <p>Фамилия: <?= $user->surname ?></p>
     <p>Отчество: <?= $user->patronymic ?></p>
-    <p>Дата рождения: <?= $user->data_birth ?></p>
-    <p>Роль: <?= $user->role->role ?></p>
+    <p>Дата рождения: <?= $user->date_birth ?></p>
+    <p>Роль: <?= $user->getRole->role ?></p>
           <p>----------------</p>
     <?php
     }

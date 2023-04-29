@@ -35,7 +35,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="<?= app()->route->getUrl('/login') ?>">Вход</a>
               </li>
-
             <?php
             else:
                 ?>
@@ -43,12 +42,18 @@
                 <a class="nav-link" href="<?= app()->route->getUrl('/nick') ?>">Nick</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= app()->route->getUrl('/signup') ?>">Добавить пользователя</a>
-              </li>
-
-              <li class="nav-item">
                 <a class="nav-link" href="<?= app()->route->getUrl('/patients') ?>">Пациенты</a>
               </li>
+                <?php if (\Src\Auth\Auth::user()->getRole->role ==='registrator'){ ?>
+                  <li class="nav-item">
+                    <a class="nav-link" href="<?= app()->route->getUrl('/addPatient') ?>">Добавить пациента</a>
+                  </li>
+            <?php }; ?>
+                <?php if (\Src\Auth\Auth::user()->getRole->role ==='admin'){ ?>
+              <li class="nav-item">
+                <a class="nav-link" href="<?= app()->route->getUrl('/signup') ?>">Добавить пользователя</a>
+              </li>
+            <?php }; ?>
             <?php
             endif;
             ?>

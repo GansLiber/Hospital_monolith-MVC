@@ -36,13 +36,13 @@ class Site
         $name = User::get('name');
         $surname = User::get('surname');
         $patron = User::get('patronymic');
-        $dataBirth = User::get('data_birth');
+        $dataBirth = User::get('date_birth');
         $users = User::all();
         return new View('site.cabinet', [
             'name' => $name,
             'surname' => $surname,
             'patronymic' => $patron,
-            'data_birth' => $dataBirth,
+            'date_birth' => $dataBirth,
             'users'=>$users
         ]);
     }
