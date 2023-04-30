@@ -32,21 +32,6 @@ class Site
         ]);
     }
 
-    public function myCabinet(): string
-    {
-        $name = User::get('name');
-        $surname = User::get('surname');
-        $patron = User::get('patronymic');
-        $dataBirth = User::get('date_birth');
-        $users = User::all();
-        return new View('site.myCabinet', [
-            'name' => $name,
-            'surname' => $surname,
-            'patronymic' => $patron,
-            'date_birth' => $dataBirth,
-            'users'=>$users
-        ]);
-    }
 
     public function patients(): string
     {

@@ -10,9 +10,9 @@
       <div class="col-md-6">
         <label for="role" class="form-label">Роль</label>
         <select class="form-select" name="id_role" id="role">
-          <option value="1">Доктор</option>
+          <option value="3">Доктор</option>
           <option value="2">Регистратор</option>
-          <option value="3">Админ</option>
+          <option value="1">Админ</option>
         </select>
       </div>
       <div class="mb-3">

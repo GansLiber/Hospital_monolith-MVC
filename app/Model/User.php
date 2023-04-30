@@ -2,6 +2,7 @@
 
 namespace Model;
 
+use Controller\Specialization;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Src\Auth\IdentityInterface;
@@ -24,6 +25,7 @@ class User extends Model implements IdentityInterface
         'date_birth'
     ];
 
+
     protected static function booted()
     {
         static::created(function ($user) {
@@ -37,6 +39,26 @@ class User extends Model implements IdentityInterface
         return $this->belongsTo(Role::class, 'id_role', 'id_role');
     }
 
+    public function getSpecialization(): BelongsTo
+    {
+        return $this->belongsTo(Specialization::class, 'id_specialization', 'id_specialization');
+    }
+
+//    public static function getDoctors()
+//    {
+//        return self::join('roles','users.id_role', '=', 'roles.id_role')
+//            ->where('roles.role', '=', 'doctor')
+//            ->get();
+//    }
+
+    public static function getDoctors()
+    {
+        return self::join('roles', 'users.id_role', '=', 'roles.id_role')
+            ->join('specializations', 'users.id_specialization', '=', 'specializations.id_specialization')
+            ->where('roles.role', '=', 'doctor')
+            ->get(['users.*', 'specializations.specialization']);
+    }
+
     //Выборка пользователя по первичному ключу
     public function findIdentity(int $id)
     {
@@ -47,6 +69,7 @@ class User extends Model implements IdentityInterface
     {
         return in_array($this->role->role, $roles);
     }
+
 
     //Возврат первичного ключа
     public function getId(): int
