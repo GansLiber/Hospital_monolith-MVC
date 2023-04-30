@@ -6,7 +6,7 @@
 <div class="row">
   <div class="col-md-6">
     <h3>Регистрация нового пользователя</h3>
-    <form method='post'>
+    <form method='post' action='/MCVphpPractice/addUser'>
       <div class="col-md-6">
         <label for="role" class="form-label">Роль</label>
         <select class="form-select" name="id_role" id="role">
@@ -50,11 +50,22 @@
         <label for="date" class="form-label">Дата рождения</label>
         <input type="date" class="form-control" name="date_birth" id="date">
       </div>
-      <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+      <button type="submit" class="btn btn-primary">Зарегистрировать</button>
     </form>
   </div>
   <div class="col-md-6">
-      <?= require_once 'helpers/addCabinet.php' ?>
+    <h3>Добавления кабинета</h3>
+    <form method="post" action='/MCVphpPractice/addCab'>
+      <div class="mb-3">
+        <label for="room_number" class="form-label">Номер кабинета</label>
+        <input type="text" class="form-control" name="numberCab" id="room_number">
+      </div>
+      <div class="mb-3">
+        <label for="floor" class="form-label">Этаж</label>
+        <input type="text" class="form-control" name="floor" id="floor">
+      </div>
+      <button type="submit" class="btn btn-primary">Добавить кабинет</button>
+    </form>
   </div>
 </div>
 

@@ -44,15 +44,18 @@
               <li class="nav-item">
                 <a class="nav-link" href="<?= app()->route->getUrl('/patients') ?>">Пациенты</a>
               </li>
-                <?php if (\Src\Auth\Auth::user()->getRole->role ==='registrator'){ ?>
-                  <li class="nav-item">
-                    <a class="nav-link" href="<?= app()->route->getUrl('/addPatient') ?>">Добавить пациента</a>
-                  </li>
+            <?php if (\Src\Auth\Auth::user()->getRole->role ==='registrator'){ ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= app()->route->getUrl('/addPatient') ?>">Добавить пациента</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= app()->route->getUrl('/registrat/addAppointments') ?>">Добавить запись</a>
+                </li>
             <?php }; ?>
-                <?php if (\Src\Auth\Auth::user()->getRole->role ==='admin'){ ?>
-              <li class="nav-item">
-                <a class="nav-link" href="<?= app()->route->getUrl('/signup') ?>">Добавить пользователя</a>
-              </li>
+            <?php if (\Src\Auth\Auth::user()->getRole->role ==='admin'){ ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= app()->route->getUrl('/signup') ?>">Добавить пользователя</a>
+                </li>
             <?php }; ?>
             <?php
             endif;
@@ -63,7 +66,7 @@
               ?>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="<?= app()->route->getUrl('/cabinet') ?>">Кабинет</a>
+                <a class="nav-link" href="<?= app()->route->getUrl('/myCabinet') ?>">Кабинет</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="<?= app()->route->getUrl('/logout') ?>">Выход

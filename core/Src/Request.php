@@ -44,4 +44,14 @@ class Request
         }
         throw new Error('Accessing a non-existent property');
     }
+    public function only(array $fields): array
+    {
+        $filtered = [];
+        foreach ($fields as $field) {
+            if (isset($this->body[$field])) {
+                $filtered[$field] = $this->body[$field];
+            }
+        }
+        return $filtered;
+    }
 }

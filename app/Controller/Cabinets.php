@@ -11,7 +11,8 @@ class Cabinets
 {
     public function addCabinet(Request $request): string
     {
-        if ($request->method === 'POST' && Cabinet::create($request->all())) {
+        $data = $request->only(['numberCab', 'floor']);
+        if ($request->method === 'POST' && Cabinet::create($data)) {
             return new View('site.signup', ['message' => 'Кабинет добавлен']);
         }
         return new View('site.signup');

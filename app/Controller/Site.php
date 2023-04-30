@@ -32,14 +32,14 @@ class Site
         ]);
     }
 
-    public function cabinet(): string
+    public function myCabinet(): string
     {
         $name = User::get('name');
         $surname = User::get('surname');
         $patron = User::get('patronymic');
         $dataBirth = User::get('date_birth');
         $users = User::all();
-        return new View('site.cabinet', [
+        return new View('site.myCabinet', [
             'name' => $name,
             'surname' => $surname,
             'patronymic' => $patron,
@@ -56,17 +56,25 @@ class Site
         ]);
     }
 
-    public function addCabinet(): string
+    public function signup(): string
     {
-        $cabinets = Cabinet::all();
-        return new View('site.signup', [
-            'cabinets'=>$cabinets
-        ]);
+        return new View('site.signup');
     }
 
-    public function signup(Request $request): string
+    public function addUser(Request $request): string
     {
-        if ($request->method === 'POST' && User::create($request->all())) {
+        $data = $request->only([
+            'name',
+            'surname',
+            'patronymic',
+            'login',
+            'password',
+            'id_role',
+            'position',
+            'id_specialization',
+            'date_birth'
+        ]);
+        if ($request->method === 'POST' && User::create($data)) {
             return new View('site.signup', ['message' => 'Пользователь добавлен']);
         }
         return new View('site.signup');
