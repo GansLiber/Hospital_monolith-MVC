@@ -18,4 +18,9 @@ class Patient extends Model
         'patronymic',
         'date_birth'
     ];
+
+    public static function getPatients()
+    {
+        return self::all();
+    }
 }
