@@ -53,7 +53,7 @@
       </div>
       <div class="mb-3" id='date-field'>
         <label for="date" class="form-label">Дата и время записи</label>
-        <input type="date" class="form-control" name="date_time" id="date">
+        <input type="datetime-local" class="form-control" name="date_time" id="date">
       </div>
       <button type="submit" class="btn btn-primary">Записать</button>
     </form>
