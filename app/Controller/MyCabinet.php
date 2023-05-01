@@ -12,13 +12,13 @@ class MyCabinet
         $name = User::get('name');
         $surname = User::get('surname');
         $patron = User::get('patronymic');
-        $dataBirth = User::get('date_birth');
+//        $dataBirth = User::get('date_birth');
         $docs = User::getDoctors();
         return new View('site.myCabinet', [
             'name' => $name,
             'surname' => $surname,
             'patronymic' => $patron,
-            'date_birth' => $dataBirth,
+//            'date_birth' => $dataBirth,
             'users'=>$docs
         ]);
     }
