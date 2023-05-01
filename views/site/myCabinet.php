@@ -21,5 +21,17 @@
           <?php
       }
       ?>
+    <select class="form-select" name="id_role" id="role">
+      <?php
+      foreach ($users as $user) {
+          ?>
+        <option value="">
+          <?= $user->specialization ?> <?= $user->name ?> <?= $user->surname ?> <?= $user->patronymic ?>
+        </option>
+        <p>----------------</p>
+          <?php
+      }
+      ?>
+    </select>
   </div>
 </div>
