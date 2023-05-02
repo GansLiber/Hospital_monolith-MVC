@@ -32,20 +32,12 @@ class MyCabinet
 //        var_dump($appointment[0]->user->toarray());
 //
 
-
-        $name = User::get('name');
-        $surname = User::get('surname');
-        $patron = User::get('patronymic');
-//        $dataBirth = User::get('date_birth');
-        $docs = User::getDoctors();
-        $myPatients = Patient::getMyPatients();
+        $user = app()->auth::user();
+        $myPatients = $user->getPatients()->
+        wherePivot('id_user',$user->id)->get();
+//        var_dump($myPatients); die();
         return new View('site.myCabinet', [
-            'name' => $name,
-            'surname' => $surname,
-            'patronymic' => $patron,
-            'users' => $docs,
             'myPatients'=>$myPatients,
-//            'patients'=>$patients
         ]);
     }
 

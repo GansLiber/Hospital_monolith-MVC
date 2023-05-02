@@ -14,6 +14,8 @@ class User extends Model implements IdentityInterface
 {
     use HasFactory;
 
+    protected $table = 'users';
+
     public $timestamps = false;
     protected $fillable = [
         'name',
@@ -94,8 +96,9 @@ class User extends Model implements IdentityInterface
 
     public function getPatients()
     {
-        return $this->belongsToMany(Patient::class, 'appointments',
-            'user_id',
+        return $this->belongsToMany(Patient::class,
+            'appointments',
+            'id_user',
             'id_patient');
     }
 }

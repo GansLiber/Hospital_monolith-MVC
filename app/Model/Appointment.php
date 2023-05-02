@@ -12,6 +12,7 @@ class Appointment extends Model
     protected $primaryKey = 'id_appointment';
     use HasFactory;
 
+    protected $table = 'appointments';
     public $timestamps = false;
     protected $fillable = [
         'id_user',
