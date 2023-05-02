@@ -13,8 +13,8 @@ class Cabinets
     {
         $data = $request->only(['numberCab', 'floor']);
         if ($request->method === 'POST' && Cabinet::create($data)) {
-            return new View('site.signup', ['message' => 'Кабинет добавлен']);
+            return new View('site.admin.signup', ['message' => 'Кабинет добавлен']);
         }
-        return new View('site.signup');
+        return new View('site.admin.signup');
     }
 }

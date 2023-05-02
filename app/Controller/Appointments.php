@@ -16,18 +16,22 @@ class Appointments
         $docs = User::getDoctors();
         $patients = Patient::getPatients();
         $cabinets = Cabinet::getAllCabinets();
+        $appointments = Appointment::getAllAppointments();
         if ($request->method === 'POST' && Appointment::create($request->all())) {
             return new View('site.registrat.addAppointments', [
                 'message' => 'Запись добавлена',
                 'docs'=>$docs,
                 'patients'=>$patients,
-                'cabinets'=>$cabinets
+                'cabinets'=>$cabinets,
+                'appointments'=>$appointments
                 ]);
         }
         return new View('site.registrat.addAppointments', [
             'docs'=>$docs,
             'patients'=>$patients,
-            'cabinets'=>$cabinets
+            'cabinets'=>$cabinets,
+            'appointments'=>$appointments
         ]);
     }
+
 }

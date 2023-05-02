@@ -77,7 +77,7 @@
   roleSelect.addEventListener('change', () => {
     const selectedRole = roleSelect.value
 
-    if (selectedRole === '1') { // Доктор
+    if (selectedRole === '3') { // Доктор
       positionField.style.display = 'block'
       roleField.style.display = 'block'
     } else if (selectedRole === '2') { // Регистратор

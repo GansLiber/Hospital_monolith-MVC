@@ -54,7 +54,7 @@
             <?php }; ?>
             <?php if (\Src\Auth\Auth::user()->getRole->role ==='admin'){ ?>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= app()->route->getUrl('/signup') ?>">Добавить пользователя</a>
+                  <a class="nav-link" href="<?= app()->route->getUrl('/admin/signup') ?>">Добавление в систему</a>
                 </li>
             <?php }; ?>
             <?php

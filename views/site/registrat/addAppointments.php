@@ -51,11 +51,23 @@
             ?>
           </select>
       </div>
-      <div class="mb-3" id='date-field'>
+      <div class="col-md-6" id='date-field'>
         <label for="date" class="form-label">Дата и время записи</label>
         <input type="datetime-local" class="form-control" name="date_time" id="date">
       </div>
-      <button type="submit" class="btn btn-primary">Записать</button>
+      <button type="submit" class="btn btn-primary" style='margin-top: 20px'>Записать</button>
     </form>
+  </div>
+  <div class="col-md-8">
+    <h4 class="card-title">Все записи</h4>
+    <div class="card">
+      <div class="card-body">
+          <?php foreach ($appointments as $appointment): ?>
+            <p>ФИО: <?= $appointment->name ?> <?= $appointment->surname ?> <?= $appointment->patronymic ?></p>
+            <p>Дата записи: <?= $appointment->date_time?></p>
+            <hr>
+          <?php endforeach; ?>
+      </div>
+    </div>
   </div>
 </div>

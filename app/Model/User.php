@@ -2,9 +2,11 @@
 
 namespace Model;
 
+
 use Controller\Specialization;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Src\Auth\IdentityInterface;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -70,7 +72,6 @@ class User extends Model implements IdentityInterface
         return in_array($this->role->role, $roles);
     }
 
-
     //Возврат первичного ключа
     public function getId(): int
     {
@@ -86,7 +87,15 @@ class User extends Model implements IdentityInterface
             )])->first();
     }
 
-    public function getAll(){
+    public function getAll()
+    {
         return self::all();
+    }
+
+    public function getPatients()
+    {
+        return $this->belongsToMany(Patient::class, 'appointments',
+            'user_id',
+            'id_patient');
     }
 }

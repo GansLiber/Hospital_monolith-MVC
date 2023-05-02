@@ -43,7 +43,7 @@ class Site
 
     public function signup(): string
     {
-        return new View('site.signup');
+        return new View('site.admin.signup');
     }
 
     public function addUser(Request $request): string
@@ -60,9 +60,9 @@ class Site
             'date_birth'
         ]);
         if ($request->method === 'POST' && User::create($data)) {
-            return new View('site.signup', ['message' => 'Пользователь добавлен']);
+            return new View('site.admin.signup', ['message' => 'Пользователь добавлен']);
         }
-        return new View('site.signup');
+        return new View('site.admin.signup');
     }
     public function login(Request $request): string
     {
