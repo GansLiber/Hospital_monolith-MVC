@@ -30,6 +30,8 @@ class User extends Model implements IdentityInterface
     ];
 
 
+
+
     protected static function booted()
     {
         static::created(function ($user) {
@@ -71,7 +73,7 @@ class User extends Model implements IdentityInterface
 
     public function hasRole($roles): bool
     {
-        return in_array($this->role->role, $roles);
+        return in_array($this->getRole->role, $roles);
     }
 
     //Возврат первичного ключа
