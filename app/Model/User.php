@@ -62,6 +62,7 @@ class User extends Model implements IdentityInterface
 //            ->get(['users.*', 'specializations.specialization']);
 //    }
 
+//не используется
     public function getDoctors(): BelongsTo
     {
         return $this->belongsTo(Role::class, 'id_role', 'id_role')
@@ -99,7 +100,7 @@ class User extends Model implements IdentityInterface
         return self::all();
     }
 
-    public function getPatients()
+    public function getMyPatients()
     {
         return $this->belongsToMany(Patient::class,
             'appointments',

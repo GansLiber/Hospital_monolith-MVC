@@ -18,8 +18,9 @@
       <div class="card">
         <div class="card-body">
             <?php foreach ($myPatients as $myPatient): ?>
+
               <p>ФИО: <?= $myPatient->name ?> <?= $myPatient->surname ?> <?= $myPatient->patronymic ?></p>
-              <p>Дата записи: <?= $myPatient->date_time?></p>
+              <p>Дата записи: <?= $myPatient->pivot->date_time?></p>
               <hr>
             <?php endforeach; ?>
         </div>
