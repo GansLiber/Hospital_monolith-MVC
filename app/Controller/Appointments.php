@@ -13,7 +13,8 @@ class Appointments
 {
     public function addAppointment(Request $request): string
     {
-        $docs = User::all();
+        $user = app()->auth::user();
+        $docs = User::getAll()->where('id_role','=','3');
         $patients = Patient::getPatients();
         $cabinets = Cabinet::getAllCabinets();
         $appointments = Appointment::getAllAppointments();

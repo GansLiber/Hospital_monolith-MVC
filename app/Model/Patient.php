@@ -25,14 +25,20 @@ class Patient extends Model
     {
         return self::all();
     }
-        public static function getMyPatients()
-    {
-        $idDoc=app()->auth::user()->id;
-        return Appointment::
-            join('patients', 'appointments.id_patient', '=', 'patients.id_patient')
-            ->join('users', 'appointments.id_user', '=', 'users.id')
-            ->where('users.id', '=', $idDoc)
-            ->select('patients.*','appointments.date_time')
-            ->get();
-    }
+//        public static function getMyPatients()
+//    {
+//        $idDoc=app()->auth::user()->id;
+//        return Appointment::
+//            join('patients', 'appointments.id_patient', '=', 'patients.id_patient')
+//            ->join('users', 'appointments.id_user', '=', 'users.id')
+//            ->where('users.id', '=', $idDoc)
+//            ->select('patients.*','appointments.date_time')
+//            ->get();
+//    }
+
+//    public function getMyPatients()
+//    {
+//        $idDoc=app()->auth::user()->id;
+//        return $this->belongsTo();
+//    }
 }

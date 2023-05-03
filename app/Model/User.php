@@ -29,7 +29,6 @@ class User extends Model implements IdentityInterface
 
 
 
-
     protected static function booted()
     {
         static::created(function ($user) {
@@ -65,7 +64,8 @@ class User extends Model implements IdentityInterface
 
     public function getDoctors(): BelongsTo
     {
-        return $this->belongsTo(Role::class, 'id_role', 'id_role');
+        return $this->belongsTo(Role::class, 'id_role', 'id_role')
+            ->where('role','=','doctor');
     }
 
     //Выборка пользователя по первичному ключу
@@ -94,7 +94,7 @@ class User extends Model implements IdentityInterface
             )])->first();
     }
 
-    public function getAll()
+    public static function getAll()
     {
         return self::all();
     }

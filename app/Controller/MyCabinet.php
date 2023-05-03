@@ -33,8 +33,8 @@ class MyCabinet
 //
 
         $user = app()->auth::user();
-        $myPatients = $user->getPatients()->
-        wherePivot('id_user',$user->id)->get();
+        $myPatients = $user->getPatients()->get();
+//        $myPatients = $user->getPatients()->wherePivot('id_user',$user->id)->get();
 //        var_dump($myPatients); die();
         return new View('site.myCabinet', [
             'myPatients'=>$myPatients,

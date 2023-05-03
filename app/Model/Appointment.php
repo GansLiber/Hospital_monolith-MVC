@@ -44,5 +44,6 @@ class Appointment extends Model
 //            ->join('cabinets', 'appointments.id_cabinet', '=', 'cabinets.id_cabinet')
 //            ->select('patients.name', 'patients.surname', 'appointments.date_time', 'cabinets.cabinet', 'user.name', 'user.surname')
 //            ->get();
-//    } не понял
+//    }
+// не понял
 }
