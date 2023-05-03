@@ -51,6 +51,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="<?= app()->route->getUrl('/registrat/addAppointments') ?>">Добавить запись</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= app()->route->getUrl('/serchAppointment') ?>">Найти запись</a>
+                </li>
             <?php }; ?>
             <?php if (\Src\Auth\Auth::user()->getRole->role ==='admin'){ ?>
                 <li class="nav-item">

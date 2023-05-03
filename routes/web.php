@@ -22,6 +22,8 @@ Route::add(['GET', 'POST'], '/addPatient', [Controller\Patients::class, 'addPati
 Route::add(['GET', 'POST'], '/registrat/addAppointments', [Controller\Appointments::class, 'addAppointment'])
     ->middleware('auth', 'can:registrator|admin');
 
+Route::add('GET', '/serchAppointment', [Controller\SerchAppointment::class, 'SerchAppointment'])
+    ->middleware('auth');
 Route::add(['GET', 'POST'], '/nick', [Controller\Site::class, 'nick'])
     ->middleware('auth');
 //Route::add(['GET', 'POST'], '/create', [Controller\Site::class, 'create'])

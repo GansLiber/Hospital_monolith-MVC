@@ -3,10 +3,8 @@
 namespace Model;
 
 
-use Controller\Specialization;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Src\Auth\IdentityInterface;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -57,12 +55,17 @@ class User extends Model implements IdentityInterface
 //            ->get();
 //    }
 
-    public static function getDoctors()
+//    public static function getDoctors()
+//    {
+//        return self::join('roles', 'users.id_role', '=', 'roles.id_role')
+//            ->join('specializations', 'users.id_specialization', '=', 'specializations.id_specialization')
+//            ->where('roles.role', '=', 'doctor')
+//            ->get(['users.*', 'specializations.specialization']);
+//    }
+
+    public function getDoctors(): BelongsTo
     {
-        return self::join('roles', 'users.id_role', '=', 'roles.id_role')
-            ->join('specializations', 'users.id_specialization', '=', 'specializations.id_specialization')
-            ->where('roles.role', '=', 'doctor')
-            ->get(['users.*', 'specializations.specialization']);
+        return $this->belongsTo(Role::class, 'id_role', 'id_role');
     }
 
     //Выборка пользователя по первичному ключу

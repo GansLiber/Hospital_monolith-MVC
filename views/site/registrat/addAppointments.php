@@ -14,7 +14,7 @@
             foreach ($docs as $doc) {
                 ?>
               <option value="<?= $doc->id ?> ">
-                  <?= $doc->specialization ?> <?= $doc->name ?> <?= $doc->surname ?> <?= $doc->patronymic ?>
+                  <?= $doc->specialization ?> <?= $doc->name ?> <?= $doc->surname ?> <?= $doc->patronymic ?> <?= $doc->getSpecialization->specialization ?>
               </option>
               <p>----------------</p>
                 <?php
@@ -62,7 +62,9 @@
     <h4 class="card-title">Все записи</h4>
     <div class="card">
       <div class="card-body">
-          <?php foreach ($appointments as $appointment): ?>
+          <?php
+//          var_dump($appointments); die();
+          foreach ($appointments as $appointment): ?>
             <p>ФИО: <?= $appointment->name ?> <?= $appointment->surname ?> <?= $appointment->patronymic ?></p>
             <p>Дата записи: <?= $appointment->date_time?></p>
             <hr>

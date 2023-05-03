@@ -13,7 +13,7 @@ class Appointments
 {
     public function addAppointment(Request $request): string
     {
-        $docs = User::getDoctors();
+        $docs = User::all();
         $patients = Patient::getPatients();
         $cabinets = Cabinet::getAllCabinets();
         $appointments = Appointment::getAllAppointments();
