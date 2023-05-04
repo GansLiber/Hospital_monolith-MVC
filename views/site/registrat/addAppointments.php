@@ -14,9 +14,11 @@
             foreach ($docs as $doc) {
                 ?>
               <option value="<?= $doc->id ?> ">
-                  <?= $doc->specialization ?> <?= $doc->name ?> <?= $doc->surname ?> <?= $doc->patronymic ?> <?= $doc->getSpecialization->specialization ?>
+                  <?= $doc->specialization->specialization ?>
+                  <?= $doc->name ?> <?= $doc->surname ?>
+                  <?= $doc->patronymic ?>
+                  <?= $doc->getSpecialization->specialization ?>
               </option>
-              <p>----------------</p>
                 <?php
             }
             ?>
@@ -29,9 +31,10 @@
           foreach ($patients as $patient) {
               ?>
             <option value="<?= $patient->id_patient ?> ">
-                <?= $patient->name ?> <?= $patient->surname ?> <?= $patient->patronymic ?>
+                <?= $patient->name ?>
+                <?= $patient->surname ?>
+                <?= $patient->patronymic ?>
             </option>
-            <p>----------------</p>
               <?php
           }
           ?>
@@ -65,8 +68,13 @@
           <?php
 //          var_dump($appointments); die();
           foreach ($appointments as $appointment): ?>
-            <p>Пациент: <?= $appointment->patient->name ?> <?= $appointment->patient->surname ?> <?= $appointment->patient->patronymic ?></p>
-            <p>Доктор: <?= $appointment->user->specialization->specialization ?> <?= $appointment->user->name ?> <?= $appointment->user->surname ?> <?= $appointment->user->patronymic ?></p>
+            <p>Пациент: <?= $appointment->patient->name ?>
+                <?= $appointment->patient->surname ?>
+                <?= $appointment->patient->patronymic ?></p>
+            <p>Доктор: <?= $appointment->user->specialization->specialization ?>
+                <?= $appointment->user->name ?>
+                <?= $appointment->user->surname ?>
+                <?= $appointment->user->patronymic ?></p>
             <p>Кабинет: <?= $appointment->cabinet->numberCab?></p>
             <p>Дата записи: <?= $appointment->date_time?></p>
             <hr>

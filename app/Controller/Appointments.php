@@ -15,8 +15,8 @@ class Appointments
     public function addAppointment(Request $request): string
     {
         $docs = Role::where('role','doctor')->first()->users;
-        $patients = Patient::getPatients();
-        $cabinets = Cabinet::getAllCabinets();
+        $patients = Patient::all();
+        $cabinets = Cabinet::all();
         $appointments = Appointment::all();
 //        echo '<pre>'; print_r($appointments);echo '</pre>'; die();
         if ($request->method === 'POST' && Appointment::create($request->all())) {

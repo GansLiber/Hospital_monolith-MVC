@@ -37,12 +37,12 @@
       <th scope="col">Имя</th>
       <th scope="col">Отчество</th>
       <th scope="col">Дата рождения</th>
+      <th scope="col"></th>
 
     </tr>
     </thead>
     <tbody>
     <?php
-    //          var_dump($appointments); die();
     foreach ($patients as $patient): ?>
 
         <tr>

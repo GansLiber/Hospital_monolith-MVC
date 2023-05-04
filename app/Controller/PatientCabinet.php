@@ -12,8 +12,18 @@ class PatientCabinet
     public function patientCabinet(Request $request): string
     {
         $patientAppointments = Appointment::where('id_patient',$request->id)->get();
-        var_dump($patientAppointments); die();
         $patient = Patient::where('id_patient', $request->id)->first();
-        return new View('site.patientCabinet', ['patient'=>$patient]);
+        if ($request->method ==='POST'){
+            $udatePatient = [
+                'name'=>$request->get('name'),
+                'surname'=>$request->get('surname'),
+                'patronymic'=>$request->get('patronymic'),
+            ];
+            $patient->update($udatePatient);
+        }
+        return new View('site.patientCabinet', [
+            'patient'=>$patient,
+            'patientAppointments'=>$patientAppointments
+            ]);
     }
 }

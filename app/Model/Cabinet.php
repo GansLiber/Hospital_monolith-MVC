@@ -15,7 +15,5 @@ class Cabinet extends Model
         'floor'
     ];
 
-    public static function getAllCabinets(){
-        return self::all();
-    }
+
 }
