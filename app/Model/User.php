@@ -42,32 +42,11 @@ class User extends Model implements IdentityInterface
         return $this->belongsTo(Role::class, 'id_role', 'id_role');
     }
 
-    public function getSpecialization(): BelongsTo
+    public function specialization(): BelongsTo
     {
         return $this->belongsTo(Specialization::class, 'id_specialization', 'id_specialization');
     }
 
-//    public static function getDoctors()
-//    {
-//        return self::join('roles','users.id_role', '=', 'roles.id_role')
-//            ->where('roles.role', '=', 'doctor')
-//            ->get();
-//    }
-
-//    public static function getDoctors()
-//    {
-//        return self::join('roles', 'users.id_role', '=', 'roles.id_role')
-//            ->join('specializations', 'users.id_specialization', '=', 'specializations.id_specialization')
-//            ->where('roles.role', '=', 'doctor')
-//            ->get(['users.*', 'specializations.specialization']);
-//    }
-
-//не используется
-    public function getDoctors(): BelongsTo
-    {
-        return $this->belongsTo(Role::class, 'id_role', 'id_role')
-            ->where('role','=','doctor');
-    }
 
     //Выборка пользователя по первичному ключу
     public function findIdentity(int $id)

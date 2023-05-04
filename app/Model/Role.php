@@ -10,6 +10,8 @@ class Role extends Model
 {
     use HasFactory;
 
+    protected $table = 'roles';
+
     public $timestamps = false;
 
     protected $primaryKey = 'id_role';
@@ -19,4 +21,9 @@ class Role extends Model
         'role',
         'description'
     ];
+
+    public function users()
+    {
+        return $this->hasMany(User::class, 'id_role', 'id_role');
+    }
 }

@@ -33,14 +33,6 @@ class Site
     }
 
 
-    public function patients(): string
-    {
-        $users = User::all();
-        return new View('site.patients', [
-            'users'=>$users
-        ]);
-    }
-
     public function signup(): string
     {
         return new View('site.admin.signup');

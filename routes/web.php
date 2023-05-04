@@ -15,14 +15,16 @@ Route::add('GET', '/logout', [Controller\Site::class, 'logout'])
     ->middleware('auth');
 Route::add('GET', '/myCabinet', [Controller\MyCabinet::class, 'myCabinet'])
     ->middleware('auth');
-Route::add('GET', '/patients', [Controller\Site::class, 'patients'])
+Route::add(['GET', 'POST'], '/serchPatients', [Controller\SerchPatients::class, 'serchPatients'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/addPatient', [Controller\Patients::class, 'addPatient'])
     ->middleware('auth', 'can:registrator|admin');
 Route::add(['GET', 'POST'], '/registrat/addAppointments', [Controller\Appointments::class, 'addAppointment'])
     ->middleware('auth', 'can:registrator|admin');
 
-Route::add('GET', '/serchAppointment', [Controller\SerchAppointment::class, 'SerchAppointment'])
+Route::add(['GET', 'POST'], '/patientCabinet', [Controller\PatientCabinet::class, 'patientCabinet'])
+    ->middleware('auth');
+Route::add(['GET', 'POST'], '/serchAppointment', [Controller\SerchAppointment::class, 'SerchAppointment'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/nick', [Controller\Site::class, 'nick'])
     ->middleware('auth');

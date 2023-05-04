@@ -37,24 +37,30 @@
       <th scope="col">Имя</th>
       <th scope="col">Отчество</th>
       <th scope="col">Дата рождения</th>
-      <th scope="col">Дата записи</th>
+
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>Иванов</td>
-      <td>Иван</td>
-      <td>Иванович</td>
-      <td>01.01.1980</td>
-      <td>01.01.2023</td>
-    </tr>
-    <tr>
-      <td>Петров</td>
-      <td>Петр</td>
-      <td>Петрович</td>
-      <td>01.01.1990</td>
-      <td>02.01.2023</td>
-    </tr>
+    <?php
+    //          var_dump($appointments); die();
+    foreach ($patients as $patient): ?>
+
+        <tr>
+          <td><?= $patient->name ?></td>
+          <td><?= $patient->surname ?></td>
+          <td><?= $patient->patronymic ?></td>
+          <td><?= $patient->date_birth ?></td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="location.href='<?= app()->route->getUrl('/patientCabinet?id=' . $patient->id_patient )?>'"
+            >Открыть</button>
+          </td>
+        <tr>
+
+    <?php endforeach; ?>
+
     </tbody>
   </table>
 </div>

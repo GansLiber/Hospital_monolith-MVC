@@ -4,7 +4,6 @@ namespace Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Src\Auth\IdentityInterface;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Appointment extends Model
@@ -21,20 +20,21 @@ class Appointment extends Model
         'date_time',
     ];
 
-    public static function getAllAppointments()
+    public function patient(): belongsTo
     {
-        return self::all();
+        return $this->belongsTo(Patient::class, 'id_patient','id_patient');
     }
 
-    public function patient()
+    public function cabinet(): belongsTo
     {
-        return $this->belongsTo(Patient::class);
+        return $this->belongsTo(Cabinet::class, 'id_cabinet','id_cabinet');
     }
 
-    public function user()
+    public function user(): belongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_user', 'id');
     }
+
 
 //    public static function getMyPatients()
 //    {

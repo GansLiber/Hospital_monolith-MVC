@@ -2,12 +2,18 @@
 
 namespace Controller;
 
+use Model\Appointment;
+use Src\Request;
 use Src\View;
 
 class SerchAppointment
 {
-    public function serchAppointment(): string
+    public function serchAppointment(Request $request): string
     {
-        return new View('site.serchAppointment', ['message' => 'hello working']);
+        $appointments = Appointment::all();
+
+        return new View('site.serchAppointment', [
+            'appointments'=>$appointments
+        ]);
     }
 }

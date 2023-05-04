@@ -15,16 +15,21 @@ class Patient extends Model
     protected $table = 'patients';
     public $timestamps = false;
     protected $fillable = [
+        'id_patient',
         'name',
         'surname',
         'patronymic',
         'date_birth'
     ];
 
-    public static function getPatients()
-    {
-        return self::all();
-    }
+//    public static function getPatients()
+//    {
+//        return self::all();
+//    }
+//    public function findIdentity(int $id)
+//    {
+//        return self::where('id_patient', $id)->first();
+//    }
 //        public static function getMyPatients()
 //    {
 //        $idDoc=app()->auth::user()->id;

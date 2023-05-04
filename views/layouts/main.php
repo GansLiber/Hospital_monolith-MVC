@@ -42,7 +42,7 @@
                 <a class="nav-link" href="<?= app()->route->getUrl('/nick') ?>">Nick</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= app()->route->getUrl('/patients') ?>">Поиск пациентов</a>
+                <a class="nav-link" href="<?= app()->route->getUrl('/serchPatients') ?>">Поиск пациентов</a>
               </li>
             <?php if (\Src\Auth\Auth::user()->getRole->role ==='registrator' || \Src\Auth\Auth::user()->getRole->role === 'admin'){ ?>
                 <li class="nav-item">

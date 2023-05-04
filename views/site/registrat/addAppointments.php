@@ -65,7 +65,9 @@
           <?php
 //          var_dump($appointments); die();
           foreach ($appointments as $appointment): ?>
-            <p>ФИО: <?= $appointment->name ?> <?= $appointment->surname ?> <?= $appointment->patronymic ?></p>
+            <p>Пациент: <?= $appointment->patient->name ?> <?= $appointment->patient->surname ?> <?= $appointment->patient->patronymic ?></p>
+            <p>Доктор: <?= $appointment->user->specialization->specialization ?> <?= $appointment->user->name ?> <?= $appointment->user->surname ?> <?= $appointment->user->patronymic ?></p>
+            <p>Кабинет: <?= $appointment->cabinet->numberCab?></p>
             <p>Дата записи: <?= $appointment->date_time?></p>
             <hr>
           <?php endforeach; ?>
