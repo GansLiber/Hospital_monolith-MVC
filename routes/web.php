@@ -28,6 +28,9 @@ Route::add(['GET', 'POST'], '/serchAppointment', [Controller\SerchAppointment::c
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/nick', [Controller\Site::class, 'nick'])
     ->middleware('auth');
+
+Route::add(['GET', 'POST'], '/deleteMe', [Controller\helpers\DeleteMe::class, 'deleteMe'])
+    ->middleware('auth');
 //Route::add(['GET', 'POST'], '/create', [Controller\Site::class, 'create'])
 //    ->middleware('auth', 'can:admin');
 //Route::add(['GET', 'POST'], '/update', [Controller\Site::class, 'update'])

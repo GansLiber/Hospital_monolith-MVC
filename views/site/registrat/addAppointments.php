@@ -77,11 +77,6 @@
                 <?= $appointment->user->patronymic ?></p>
             <p>Кабинет: <?= $appointment->cabinet->numberCab?></p>
             <p>Дата записи: <?= $appointment->date_time?></p>
-            <button
-              type="button"
-              class="btn btn-primary"
-              onclick="location.href='<?= app()->route->getUrl('/patientCabinet?id=' . $patient->id_patient )?>'"
-            >Отменить</button>
             <hr>
           <?php endforeach; ?>
       </div>

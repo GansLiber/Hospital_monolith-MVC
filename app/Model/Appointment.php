@@ -20,6 +20,7 @@ class Appointment extends Model
         'id_patient',
         'id_cabinet',
         'date_time',
+        'deleted_at'
     ];
 
     public function patient(): belongsTo

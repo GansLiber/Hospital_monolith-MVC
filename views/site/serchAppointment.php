@@ -28,10 +28,21 @@
             <?php
             //          var_dump($appointments); die();
             foreach ($appointments as $appointment): ?>
-              <p>Пациент: <?= $appointment->patient->name ?> <?= $appointment->patient->surname ?> <?= $appointment->patient->patronymic ?></p>
-              <p>Доктор: <?= $appointment->user->specialization->specialization ?> <?= $appointment->user->name ?> <?= $appointment->user->surname ?> <?= $appointment->user->patronymic ?></p>
+              <p>Пациент: <?= $appointment->patient->name ?>
+                  <?= $appointment->patient->surname ?>
+                  <?= $appointment->patient->patronymic ?></p>
+              <p>Доктор: <?= $appointment->user->specialization->specialization ?>
+                  <?= $appointment->user->name ?>
+                  <?= $appointment->user->surname ?>
+                  <?= $appointment->user->patronymic ?></p>
               <p>Кабинет: <?= $appointment->cabinet->numberCab?></p>
               <p>Дата записи: <?= $appointment->date_time?></p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="location.href='<?= app()->route->getUrl('/deleteMe?id=' . $appointment->id_appointment)?>'"
+              >Отменить</button>
+              <hr>
               <hr>
             <?php endforeach; ?>
         </div>
