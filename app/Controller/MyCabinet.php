@@ -11,14 +11,15 @@ class MyCabinet
 {
     public function myCabinet(Request $request): string
     {
+        $payload = $request->all();
+        if ($request->method === 'POST'){
+            Diagnoses::create([
+                'disease' => $payload['disease'],
+                'id_appointment' => $payload['id_appointment']]);
+        }
+
         $user = app()->auth::user();
         $myPatients = $user->getMyPatients;
-        $disease = Diagnoses::all();
-        if ($request->method === 'POST' && Diagnoses::create($request->disease)){
-            return new View('site.myCabinet', [
-                'myPatients'=>$myPatients,
-            ]);
-        }
         return new View('site.myCabinet', [
             'myPatients'=>$myPatients,
         ]);

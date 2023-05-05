@@ -13,7 +13,7 @@ Route::add([ 'POST'], '/addUser', [Controller\Site::class, 'addUser'])
 Route::add(['GET', 'POST'], '/login', [Controller\Site::class, 'login']);
 Route::add('GET', '/logout', [Controller\Site::class, 'logout'])
     ->middleware('auth');
-Route::add('GET', '/myCabinet', [Controller\MyCabinet::class, 'myCabinet'])
+Route::add(['GET', 'POST'], '/myCabinet', [Controller\MyCabinet::class, 'myCabinet'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/serchPatients', [Controller\SerchPatients::class, 'serchPatients'])
     ->middleware('auth');
@@ -28,6 +28,7 @@ Route::add(['GET', 'POST'], '/serchAppointment', [Controller\SerchAppointment::c
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/nick', [Controller\Site::class, 'nick'])
     ->middleware('auth');
+
 
 Route::add(['GET', 'POST'], '/deleteMe', [Controller\helpers\DeleteMe::class, 'deleteMe'])
     ->middleware('auth');

@@ -18,17 +18,20 @@
       <div class="card">
         <div class="card-body">
             <?php foreach ($myPatients as $myPatient): ?>
-
-              <p>ФИО: <?= $myPatient->name ?> 
-                  <?= $myPatient->surname ?> 
-                  <?= $myPatient->patronymic ?></p>
-              <p>Дата записи: <?= $myPatient->date_birth?></p>
-            <form method='post' style='display: flex'>
-              <label for="record" class="form-label">Диагноз: </label>
-              <input type='text' id='record' name='disease'>
-              <button type="submit" class="btn btn-primary" style='margin-left: 20px'>Поставить</button>
-            </form>
-              <hr>
+                <?php foreach($myPatient->appointments as $appointment) { ?>
+                <p>ФИО: <?= $myPatient->name ?>
+                    <?= $myPatient->surname ?>
+                    <?= $myPatient->patronymic ?></p>
+                <p>Дата записи: <?= $myPatient->date_birth?></p>
+<!--!!!!!!!!!-->
+                <form method='post' style='display: flex'>
+                  <input type='hidden' name='id_appointment' value="<?= $appointment->id_appointment ?>">
+                  <label for="record" class="form-label">Диагноз: </label>
+                  <input type='text' id='record' name='disease'>
+                  <button type="submit" class="btn btn-primary" style='margin-left: 20px'>Поставить</button>
+                </form>
+                <hr>
+                <?php } ?>
             <?php endforeach; ?>
         </div>
       </div>
