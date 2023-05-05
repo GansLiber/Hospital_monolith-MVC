@@ -4,18 +4,18 @@
   <h1>Поиск пациентов</h1>
   <?php }; ?>
 <form method="post">
-  <div class="mb-3">
-    <label for="surname" class="form-label">Фамилия:</label>
-    <input type="text" id="surname" name="surname" class="form-control">
-  </div>
+<!--  <div class="mb-3">-->
+<!--    <label for="surname" class="form-label">Фамилия:</label>-->
+<!--    <input type="text" id="surname" name="surname" class="form-control">-->
+<!--  </div>-->
   <div class="mb-3">
     <label for="name" class="form-label">Имя:</label>
     <input type="text" id="name" name="name" class="form-control">
   </div>
-  <div class="mb-3">
-    <label for="patronymic" class="form-label">Отчество:</label>
-    <input type="text" id="patronymic" name="patronymic" class="form-control">
-  </div>
+<!--  <div class="mb-3">-->
+<!--    <label for="patronymic" class="form-label">Отчество:</label>-->
+<!--    <input type="text" id="patronymic" name="patronymic" class="form-control">-->
+<!--  </div>-->
 <!--  <div class="mb-3">-->
 <!--    <label for="birthdate" class="form-label">Дата рождения:</label>-->
 <!--    <input type="date" id="birthdate" name="birthdate" class="form-control">-->
