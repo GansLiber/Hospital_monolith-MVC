@@ -4,18 +4,18 @@
   <h1>Поиск пациентов</h1>
   <?php }; ?>
 <form method="post">
-<!--  <div class="mb-3">-->
-<!--    <label for="surname" class="form-label">Фамилия:</label>-->
-<!--    <input type="text" id="surname" name="surname" class="form-control">-->
-<!--  </div>-->
+  <div class="mb-3">
+    <label for="surname" class="form-label">Фамилия:</label>
+    <input type="text" id="surname" name="surname" class="form-control">
+  </div>
   <div class="mb-3">
     <label for="name" class="form-label">Имя:</label>
     <input type="text" id="name" name="name" class="form-control">
   </div>
-<!--  <div class="mb-3">-->
-<!--    <label for="patronymic" class="form-label">Отчество:</label>-->
-<!--    <input type="text" id="patronymic" name="patronymic" class="form-control">-->
-<!--  </div>-->
+  <div class="mb-3">
+    <label for="patronymic" class="form-label">Отчество:</label>
+    <input type="text" id="patronymic" name="patronymic" class="form-control">
+  </div>
 <!--  <div class="mb-3">-->
 <!--    <label for="birthdate" class="form-label">Дата рождения:</label>-->
 <!--    <input type="date" id="birthdate" name="birthdate" class="form-control">-->
@@ -33,8 +33,8 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th scope="col">Имя</th>
       <th scope="col">Фамилия</th>
+      <th scope="col">Имя</th>
       <th scope="col">Отчество</th>
       <th scope="col">Дата рождения</th>
       <th scope="col"></th>
@@ -46,8 +46,8 @@
     foreach ($patients as $patient): ?>
 
         <tr>
-          <td><?= $patient->name ?></td>
           <td><?= $patient->surname ?></td>
+          <td><?= $patient->name ?></td>
           <td><?= $patient->patronymic ?></td>
           <td><?= $patient->date_birth ?></td>
           <td>

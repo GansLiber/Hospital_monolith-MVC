@@ -8,17 +8,22 @@
         <form method='post'>
           <div class="col-md-6">
             <label  for="cabinet" class="form-label">Доктор</label>
-            <input class="form-control"  type='text' id='cabinet'>
+            <input class="form-control" name='doctor' type='text' id='cabinet'>
           </div>
           <div class="col-md-6">
             <label  for="cabinet" class="form-label">Пациент</label>
-            <input class="form-control"  type='text' id='cabinet'>
+            <input class="form-control" name='patient' type='text' id='cabinet'>
           </div>
             <div class="col-md-6">
                 <label  for="cabinet" class="form-label">Кабинет</label>
-                <input class="form-control"  type='text' id='cabinet'>
+                <input class="form-control" name='cabinet' type='text' id='cabinet'>
+            </div>
+            <div class="mb-3">
+              <label for="record_date" class="form-label">Поиск по дате записи:</label>
+              <input type="datetime-local" id="record_date" name="date" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary" style='margin-top: 20px'>Найти</button>
+          <br><br>
         </form>
     </div>
     <div class="col-md-8">
