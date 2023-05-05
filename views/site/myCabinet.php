@@ -37,8 +37,6 @@
                       <?php } ?>
                   </form>
                   <hr>
-                  <!--              $myPatient->appointments->first()->diagnose->disease-->
-
                 <?php endforeach; ?>
             </div>
           </div>

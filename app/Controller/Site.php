@@ -9,6 +9,7 @@ use Src\View;
 use Src\Request;
 use Model\User;
 use Src\Auth\Auth;
+use Src\Validator\Validator;
 
 class Site
 {
@@ -37,6 +38,29 @@ class Site
     {
         return new View('site.admin.signup');
     }
+//!!!
+//    public function signup(Request $request): string
+//    {
+//        if ($request->method === 'POST') {
+//
+//            $validator = new Validator($request->all(), [
+//                'name' => ['required'],
+//                'login' => ['required', 'unique:users,login'],
+//                'password' => ['required']
+//            ], [
+//                'required' => 'Поле :field пусто',
+//                'unique' => 'Поле :field должно быть уникально'
+//            ]);
+//
+//            if($validator->fails()){
+//                return new View('site.admin.signup',
+//                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+//            }
+//
+//        }
+//        return new View('site.signup');
+//    }
+//!!!
 
     public function addUser(Request $request): string
     {

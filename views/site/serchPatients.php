@@ -3,7 +3,8 @@
 <?php }else{?>
   <h1>Поиск пациентов</h1>
   <?php }; ?>
-<form method="post">
+<form method="post" >
+  <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
   <div class="mb-3">
     <label for="surname" class="form-label">Фамилия:</label>
     <input type="text" id="surname" name="surname" class="form-control">
