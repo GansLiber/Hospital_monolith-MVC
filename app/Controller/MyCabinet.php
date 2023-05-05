@@ -3,7 +3,7 @@
 namespace Controller;
 
 use Model\Appointment;
-use Model\Diagnoses;
+use Model\Diagnose;
 use Src\Request;
 use Src\View;
 
@@ -13,7 +13,7 @@ class MyCabinet
     {
         $payload = $request->all();
         if ($request->method === 'POST'){
-            Diagnoses::create([
+            Diagnose::create([
                 'disease' => $payload['disease'],
                 'id_appointment' => $payload['id_appointment']]);
         }

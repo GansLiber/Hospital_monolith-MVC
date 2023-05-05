@@ -5,12 +5,15 @@ namespace Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Appointment extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    protected $with = ['diagnose'];
 
     protected $primaryKey = 'id_appointment';
     protected $table = 'appointments';
@@ -38,6 +41,10 @@ class Appointment extends Model
         return $this->belongsTo(User::class, 'id_user', 'id');
     }
 
+    public function diagnose(): hasOne
+    {
+        return $this->hasOne(Diagnose::class, 'id_appointment','id_appointment');
+    }
 
 //    public static function getMyPatients()
 //    {
