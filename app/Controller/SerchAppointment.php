@@ -20,12 +20,15 @@ class SerchAppointment
         if ($request->method === 'POST'){
 //            var_dump($request); die();
             $findPatients = Appointment::where([
-                ['name','LIKE',"%{$request->doctor->id}%"],
-                ['surname','LIKE',"%{$request->patient->id_patient}%"],
-                ['cabinet','LIKE',"%{$request->cabinet->id_cabinet}%"],
+                ['id_user','LIKE',"%{$request->user}%"],
+                ['id_patient','LIKE',"%{$request->patient}%"],
+                ['id_cabinet','LIKE',"%{$request->cabinet}%"],
             ])->get();
             return new View('site.serchAppointment', [
-                'appointments'=>$findPatients
+                'appointments'=>$findPatients,
+                'patients'=>$patients,
+                'cabinets'=>$cabinets,
+                'docs'=>$docs,
             ]);
         }
         return new View('site.serchAppointment', [

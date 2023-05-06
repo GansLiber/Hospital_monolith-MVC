@@ -3,16 +3,13 @@
   <h3 style='color: #1334bb;'><?= $message ?? ''; ?></h3>
 </div>
 
-<div class="row">
+<div style='display: flex' >
   <div class="col-md-6">
     <h3>Новая запись</h3>
     <form method='post'>
       <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
       <div class="col-md-6">
         <label for="doc" class="form-label">Доктор</label>
-        <select class="form-select" name="id_user" id="doc">
-              <option value=""></option>
-        </select>
         <select class="form-select" name="id_user" id="doc">
             <?php
             foreach ($docs as $doc) {
