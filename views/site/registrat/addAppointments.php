@@ -7,8 +7,12 @@
   <div class="col-md-6">
     <h3>Новая запись</h3>
     <form method='post'>
+      <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
       <div class="col-md-6">
         <label for="doc" class="form-label">Доктор</label>
+        <select class="form-select" name="id_user" id="doc">
+              <option value=""></option>
+        </select>
         <select class="form-select" name="id_user" id="doc">
             <?php
             foreach ($docs as $doc) {
@@ -56,7 +60,7 @@
       </div>
       <div class="col-md-6" id='date-field'>
         <label for="date" class="form-label">Дата и время записи</label>
-        <input type="datetime-local" class="form-control" name="date_time" id="date">
+        <input required type="datetime-local" class="form-control" name="date_time" id="date">
       </div>
       <button type="submit" class="btn btn-primary" style='margin-top: 20px'>Записать</button>
     </form>

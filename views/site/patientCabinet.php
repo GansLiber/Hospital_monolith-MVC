@@ -11,6 +11,7 @@
             </div>
           <button id="edit-patient-btn" class="btn btn-primary">Изменить пациента</button>
             <form id="edit-patient-form" style='display: none' method='post'>
+              <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
               <div class="mb-3">
                 <label for="name" class="form-label">Имя</label>
                 <input type="text" class="form-control" name="name" id="name">

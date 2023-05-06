@@ -3,7 +3,9 @@
 namespace Controller;
 
 use Model\Appointment;
+use Model\Cabinet;
 use Model\Patient;
+use Model\Role;
 use Src\Request;
 use Src\View;
 
@@ -11,21 +13,26 @@ class SerchAppointment
 {
     public function serchAppointment(Request $request): string
     {
+        $docs = Role::where('role','doctor')->first()->users;
+        $patients = Patient::all();
+        $cabinets = Cabinet::all();
         $appointments = Appointment::all();
         if ($request->method === 'POST'){
-//            var_dump($request);die();
+//            var_dump($request); die();
             $findPatients = Appointment::where([
-                ['name','LIKE',"%{$request->doctor}%"],
-                ['surname','LIKE',"%{$request->patient}%"],
-                ['cabinet','LIKE',"%{$request->cabinet}%"],
-                ['date','LIKE',"%{$request->date}%"],
+                ['name','LIKE',"%{$request->doctor->id}%"],
+                ['surname','LIKE',"%{$request->patient->id_patient}%"],
+                ['cabinet','LIKE',"%{$request->cabinet->id_cabinet}%"],
             ])->get();
             return new View('site.serchAppointment', [
-                'patients'=>$findPatients
+                'appointments'=>$findPatients
             ]);
         }
         return new View('site.serchAppointment', [
-            'appointments'=>$appointments
+            'appointments'=>$appointments,
+            'patients'=>$patients,
+            'cabinets'=>$cabinets,
+            'docs'=>$docs,
         ]);
     }
 }

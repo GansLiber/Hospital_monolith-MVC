@@ -1,12 +1,16 @@
 <div style='display: flex'>
   <h2 style='margin-right: 10px'>Добавление в систему</h2>
-  <h3 style='color: #1334bb;'><?= $message ?? ''; ?></h3>
+  <h3 style='color: #1334bb;'><?= $message ?? '';?></h3>
+
+
+
 </div>
 
 <div class="row">
   <div class="col-md-6">
     <h3>Регистрация нового пользователя</h3>
     <form method='post' action='/MCVphpPractice/addUser'>
+      <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
       <div class="col-md-6">
         <label for="role" class="form-label">Роль</label>
         <select class="form-select" name="id_role" id="role">
@@ -40,7 +44,7 @@
         <input type="text" class="form-control" name="position" id="position">
       </div>
       <div class="mb-3" id='role-field'>
-        <label for="specialization" class="form-label">Роль</label>
+        <label for="specialization" class="form-label">Специальность</label>
         <select class="form-select" name='id_specialization' id="role">
           <option value="1">Хирург</option>
           <option value="2">Терапевт</option>
@@ -56,6 +60,7 @@
   <div class="col-md-6">
     <h3>Добавления кабинета</h3>
     <form method="post" action='/MCVphpPractice/addCab'>
+      <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
       <div class="mb-3">
         <label for="room_number" class="form-label">Номер кабинета</label>
         <input type="text" class="form-control" name="numberCab" id="room_number">

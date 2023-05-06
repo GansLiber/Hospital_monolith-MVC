@@ -1,10 +1,11 @@
 
 <h2>Регистрация нового пациента</h2>
-<h3><?= $message ?? ''; ?></h3>
+<h3 style='color: #1334bb;'><?= $message ?? ''; ?></h3>
 
 <div class="row">
   <div class="col-md-6">
     <form method='post'>
+      <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
       <div class="mb-3">
         <label for="name" class="form-label">Имя</label>
         <input type="text" class="form-control" name="name" id="name">

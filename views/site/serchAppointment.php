@@ -6,22 +6,51 @@
 <div class="row">
     <div class="col-md-6">
         <form method='post'>
+          <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
+          <select class="form-select" name="id_user" id="doc">
+              <?php
+              foreach ($docs as $doc) {
+                  ?>
+                <option value="<?= $doc->id ?> ">
+                    <?= $doc->specialization->specialization ?>
+                    <?= $doc->name ?> <?= $doc->surname ?>
+                    <?= $doc->patronymic ?>
+                    <?= $doc->getSpecialization->specialization ?>
+                </option>
+                  <?php
+              }
+              ?>
+          </select>
           <div class="col-md-6">
-            <label  for="cabinet" class="form-label">Доктор</label>
-            <input class="form-control" name='doctor' type='text' id='cabinet'>
+            <label for="patient" class="form-label">Пациент</label>
+            <select class="form-select" name="id_patient" id="patient">
+                <?php
+                foreach ($patients as $patient) {
+                    ?>
+                  <option value="<?= $patient->id_patient ?> ">
+                      <?= $patient->name ?>
+                      <?= $patient->surname ?>
+                      <?= $patient->patronymic ?>
+                  </option>
+                    <?php
+                }
+                ?>
+            </select>
           </div>
           <div class="col-md-6">
-            <label  for="cabinet" class="form-label">Пациент</label>
-            <input class="form-control" name='patient' type='text' id='cabinet'>
+            <label for="cabinet" class="form-label">Кабинет</label>
+            <select class="form-select" name="id_cabinet" id="cabinet">
+                <?php
+                foreach ($cabinets as $cabinet) {
+                    ?>
+                  <option value="<?= $cabinet->id_cabinet ?> ">
+                    Кабинет <?= $cabinet->numberCab ?> этаж <?= $cabinet->floor ?>
+                  </option>
+                    <?php
+                }
+                ?>
+            </select>
           </div>
-            <div class="col-md-6">
-                <label  for="cabinet" class="form-label">Кабинет</label>
-                <input class="form-control" name='cabinet' type='text' id='cabinet'>
-            </div>
-            <div class="mb-3">
-              <label for="record_date" class="form-label">Поиск по дате записи:</label>
-              <input type="datetime-local" id="record_date" name="date" class="form-control">
-            </div>
             <button type="submit" class="btn btn-primary" style='margin-top: 20px'>Найти</button>
           <br><br>
         </form>

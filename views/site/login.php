@@ -9,6 +9,7 @@
             <?php endif; ?>
             <?php if(!app()->auth::check()): ?>
               <form method="post">
+                <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
                 <div class="form-group">
                   <label for="login">Логин:</label>
                   <input type="text" class="form-control" id="login" name="login">
