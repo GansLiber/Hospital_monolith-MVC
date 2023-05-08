@@ -17,20 +17,21 @@
           <h4 class="card-title">Мои записи</h4>
           <div class="card">
             <div class="card-body">
-                <?php foreach ($myPatients as $myPatient): ?>
+                <?php foreach ($myAppointments as $myAppointment): ?>
 
-                  <p>ФИО: <?= $myPatient->name ?>
-                      <?= $myPatient->surname ?>
-                      <?= $myPatient->patronymic ?></p>
-                  <p>Дата записи: <?= $myPatient->date_birth ?></p>
+                  <p>ФИО: <?= $myAppointment->patient->name ?>
+                      <?= $myAppointment->patient->surname ?>
+                      <?= $myAppointment->patient->patronymic ?></p>
+                  <p>Дата записи: <?= $myAppointment->patient->date_birth ?></p>
 
                   <form method='post' style='display: flex'>
+                    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
                     <input type='hidden' name='id_appointment'
-                           value="<?= $myPatient->appointments[0]->id_appointment ?>">
+                           value="<?= $myAppointment->id_appointment ?>">
 
                     <label for="record" class="form-label">Диагноз: </label>
-                      <?php if ($myPatient->appointments->first()->diagnose->disease) { ?>
-                        <p>&nbsp<?= $myPatient->appointments->first()->diagnose->disease ?></p>
+                      <?php if ($myAppointment->diagnose->disease) { ?>
+                        <p>&nbsp<?= $myAppointment->diagnose->disease ?></p>
                       <?php } else { ?>
                         <input type='text' id='record' name='disease'>
                         <button type="submit" class="btn btn-primary" style='margin-left: 20px'>Поставить</button>

@@ -12,16 +12,19 @@ class MyCabinet
     public function myCabinet(Request $request): string
     {
         $payload = $request->all();
+        $idUser = app()->auth::user()->id;
+        $myAppointments = Appointment::where('id_user', $idUser)->get();
         if ($request->method === 'POST'){
             Diagnose::create([
                 'disease' => $payload['disease'],
                 'id_appointment' => $payload['id_appointment']]);
+            return new View('site.myCabinet', [
+                'myAppointments'=>$myAppointments,
+            ]);
         }
 
-        $user = app()->auth::user();
-        $myPatients = $user->getMyPatients;
         return new View('site.myCabinet', [
-            'myPatients'=>$myPatients,
+            'myAppointments'=>$myAppointments,
         ]);
     }
 }

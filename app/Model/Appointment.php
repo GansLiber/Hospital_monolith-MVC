@@ -46,14 +46,4 @@ class Appointment extends Model
         return $this->hasOne(Diagnose::class, 'id_appointment','id_appointment');
     }
 
-//    public static function getMyPatients()
-//    {
-//        return Appointment::
-//        join('patients', 'appointments.id_patient', '=', 'patients.id_patient')
-//            ->join('users', 'appointments.id_user', '=', 'users.id')
-//            ->join('cabinets', 'appointments.id_cabinet', '=', 'cabinets.id_cabinet')
-//            ->select('patients.name', 'patients.surname', 'appointments.date_time', 'cabinets.cabinet', 'user.name', 'user.surname')
-//            ->get();
-//    }
-// не понял
 }
