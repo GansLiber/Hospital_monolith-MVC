@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Controller;
 
 use Model\Appointment;
@@ -11,20 +12,24 @@ class MyCabinet
 {
     public function myCabinet(Request $request): string
     {
-        $payload = $request->all();
         $idUser = app()->auth::user()->id;
         $myAppointments = Appointment::where('id_user', $idUser)->get();
+
         if ($request->method === 'POST'){
             Diagnose::create([
-                'disease' => $payload['disease'],
-                'id_appointment' => $payload['id_appointment']]);
+                'disease' => $request->disease,
+                'id_appointment' => $request->id_appointment
+            ]);
+
+            $myAppointments->load('diagnose');
+
             return new View('site.myCabinet', [
-                'myAppointments'=>$myAppointments,
+                'myAppointments' => $myAppointments,
             ]);
         }
 
         return new View('site.myCabinet', [
-            'myAppointments'=>$myAppointments,
+            'myAppointments' => $myAppointments,
         ]);
     }
 }
