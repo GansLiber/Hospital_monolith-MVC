@@ -5,6 +5,7 @@ namespace Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Src\Auth\IdentityInterface;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -28,7 +29,6 @@ class User extends Model implements IdentityInterface
     ];
 
 
-
     protected static function booted()
     {
         static::created(function ($user) {
@@ -47,6 +47,10 @@ class User extends Model implements IdentityInterface
         return $this->belongsTo(Specialization::class, 'id_specialization', 'id_specialization');
     }
 
+    public function appointments(): HasOne
+    {
+        return $this->HasOne(Appointment::class, 'id_user', 'id');
+    }
 
     //Выборка пользователя по первичному ключу
     public function findIdentity(int $id)

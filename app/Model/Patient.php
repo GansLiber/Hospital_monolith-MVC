@@ -5,6 +5,7 @@ namespace Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Support\Facades\DB;
 use Src\Auth\IdentityInterface;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -23,8 +24,13 @@ class Patient extends Model
         'date_birth'
     ];
 
-    public function appointments()
+    public function appointments(): HasMany
     {
         return $this->hasMany(Appointment::class, 'id_patient', 'id_patient');
+    }
+
+    public function myPatients(): HasOneThrough
+    {
+        return $this->HasOneThrough(User::class, 'id_user', Appointment::class, 'id_appointment');
     }
 }

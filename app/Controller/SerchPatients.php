@@ -2,10 +2,9 @@
 
 namespace Controller;
 
-
-use Illuminate\Database\Eloquent\Model;
-use Model\User;
+use Illuminate\Database\Eloquent\Collection;
 use Model\Patient;
+use Src\Auth\Auth;
 use Src\Request;
 use Src\View;
 
@@ -14,37 +13,44 @@ class SerchPatients
     public function serchPatients(Request $request): string
     {
         $patients = Patient::all();
-        if (\Src\Auth\Auth::user()->getRole->role ==='doctor'){
-            $user = app()->auth::user();
-            $docFindPatients = $user->getMyPatients;
 
-            if ($request->method === 'POST'){
+        if (Auth::user()->getRole->role === 'doctor') {
+            $docFindPatients = Auth::user()
+                ->appointments()
+                ->with('patient')
+                ->distinct()
+                ->pluck('id_patient');
 
-                $findPatients = $docFindPatients[0]->where([
-                    ['name','LIKE',"%{$request->name}%"],
-                    ['surname','LIKE',"%{$request->surname}%"],
-                    ['patronymic','LIKE',"%{$request->patronymic}%"]
-                ])->get();
+            if ($request->method === 'POST') {
+                $findPatients = Patient::whereIn('id_patient', $docFindPatients)
+                    ->where('name', 'LIKE', "%{$request->name}%")
+                    ->where('surname', 'LIKE', "%{$request->surname}%")
+                    ->where('patronymic', 'LIKE', "%{$request->patronymic}%")
+                    ->get();
+
                 return new View('site.serchPatients', [
-                    'patients'=>$findPatients
+                    'patients' => $findPatients
                 ]);
             }
+
             return new View('site.serchPatients', [
-                'patients'=>$docFindPatients
+                'patients' => Patient::whereIn('id_patient', $docFindPatients)->get()
             ]);
         }
-        if ($request->method === 'POST'){
-            $findPatients = Patient::where([
-                ['name','LIKE',"%{$request->name}%"],
-                ['surname','LIKE',"%{$request->surname}%"],
-                ['patronymic','LIKE',"%{$request->patronymic}%"]
-            ])->get();
+
+        if ($request->method === 'POST') {
+            $findPatients = Patient::where('name', 'LIKE', "%{$request->name}%")
+                ->where('surname', 'LIKE', "%{$request->surname}%")
+                ->where('patronymic', 'LIKE', "%{$request->patronymic}%")
+                ->get();
+
             return new View('site.serchPatients', [
-                'patients'=>$findPatients
+                'patients' => $findPatients
             ]);
         }
+
         return new View('site.serchPatients', [
-            'patients'=>$patients
+            'patients' => $patients
         ]);
     }
 }
