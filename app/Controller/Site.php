@@ -45,9 +45,9 @@ class Site
         ]);
         if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
-                'name' => ['required'],
-                'surname'=>['required'],
-                'patronymic'=>['required'],
+                'name' => ['required','letter'],
+                'surname'=>['required','letter'],
+                'patronymic'=>['required','letter'],
                 'login' => ['required', 'unique:users,login'],
                 'password' => ['required'],
                 'date_birth' => ['required'],

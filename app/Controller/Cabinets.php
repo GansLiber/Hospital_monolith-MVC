@@ -16,11 +16,10 @@ class Cabinets
 
         if ($request->method === 'POST') {
                 $validator = new Validator($request->all(), [
-                    'numberCab' => ['required'],
-                    'floor'=>['required'],
+                    'numberCab' => ['required','digits'],
+                    'floor'=>['required','digits'],
                 ], [
                     'required' => 'Поле :field пусто',
-                    'unique' => 'Поле :field должно быть уникально'
                 ]);
 
                 if($validator->fails()){
