@@ -46,6 +46,7 @@
         <td><?= $patient->name ?></td>
         <td><?= $patient->patronymic ?></td>
         <td><?= $patient->date_birth ?></td>
+          <?php if (\Src\Auth\Auth::user()->getRole->role !=='doctor'){ ?>
         <td>
           <button
             type="button"
@@ -54,6 +55,7 @@
           >Открыть
           </button>
         </td>
+          <?php }; ?>
       <tr>
           <?php endforeach; ?>
       </tbody>
