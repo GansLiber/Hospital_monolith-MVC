@@ -21,6 +21,7 @@ class Patient extends Model
         'name',
         'surname',
         'patronymic',
+        'avatar',
         'date_birth'
     ];
 

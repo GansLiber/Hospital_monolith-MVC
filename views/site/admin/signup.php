@@ -9,7 +9,7 @@
 <div class="row">
   <div class="col-md-6">
     <h3>Регистрация нового пользователя</h3>
-    <form method='post' action='/MCVphpPractice/addUser'>
+    <form method='post' action='/MCVphpPractice/addUser' >
       <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
       <div class="col-md-6">
         <label for="role" class="form-label">Роль</label>
@@ -54,6 +54,9 @@
         <label for="date" class="form-label">Дата рождения</label>
         <input type="date" class="form-control" name="date_birth" id="date">
       </div>
+
+
+
       <button type="submit" class="btn btn-primary">Зарегистрировать</button>
     </form>
   </div>

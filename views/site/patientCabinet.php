@@ -3,6 +3,14 @@
     <div class="row">
         <div class="col-md-4">
             <h4 class="card-title">Пациент</h4>
+          <img style='width: 200px' src="<?= $patient->avatar ?>" alt=''>
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="location.href='<?= app()->route->getUrl('/avatar?id=' . $patient->id_patient) ?>'"
+          >Изменить аватар
+          </button>
+          <br><br>
             <div class="card mb-4">
                 <div class="card-body">
                     <p class="card-text">ФИО: <?= $patient->name ?> <?= $patient->surname ?> <?= $patient->patronymic ?></p>
@@ -24,10 +32,9 @@
                 <label for="patronymic" class="form-label">Отчество</label>
                 <input type="text" class="form-control" name="patronymic" id="patronymic">
               </div>
-<!--              <div class="mb-3" id='date-field'>-->
-<!--                <label for="date" class="form-label">Дата рождения</label>-->
-<!--                <input type="date" class="form-control" name="date_birth" id="date">-->
-<!--              </div>-->
+
+
+
               <button type="submit" class="btn btn-primary">Изменить</button>
             </form>
         </div>
@@ -63,4 +70,6 @@
     editPatientForm.style.display = 'block';
     editPatientBtn.style.display = 'none';
   });
+
+
 </script>

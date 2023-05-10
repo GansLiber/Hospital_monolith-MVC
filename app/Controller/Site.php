@@ -31,7 +31,7 @@ class Site
 
     public function addUser(Request $request): string
     {
-
+        $path = 'uploads/'.time(). $_FILES['img']['name'];
         $data = $request->only([
             'name',
             'surname',
@@ -41,6 +41,7 @@ class Site
             'id_role',
             'position',
             'id_specialization',
+            'avatar',
             'date_birth'
         ]);
         if ($request->method === 'POST') {
@@ -56,13 +57,14 @@ class Site
                 'unique' => 'Поле :field должно быть уникально'
             ]);
 
+
+//            var_dump($path);die();
             if($validator->fails()){
                 $message = json_encode($validator->errors(), JSON_UNESCAPED_UNICODE);
                 return new View('site.admin.signup',
-                    ['message' => $message,
-//                        'errors'=>$message
-                    ]);
+                    ['message' => $message,]);
             }
+
             User::create($data);
             return new View('site.admin.signup', ['message' => 'Пользователь добавлен']);
         }

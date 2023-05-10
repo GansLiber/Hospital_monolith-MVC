@@ -16,6 +16,7 @@ class Patients
             'name',
             'surname',
             'patronymic',
+            'avatar',
             'date_birth'
         ]);
         if ($request->method === 'POST') {
