@@ -3,12 +3,12 @@
     <div class="row">
         <div class="col-md-4">
             <h4 class="card-title">Пациент</h4>
-          <img style='width: 200px' src="<?= $patient->avatar ?>" alt=''>
+          <img style='width: 200px' src="/MCVphpPractice/public/images/<?= $patient->avatar ?>" alt=''>
           <button
             type="button"
             class="btn btn-primary"
             onclick="location.href='<?= app()->route->getUrl('/avatar?id=' . $patient->id_patient) ?>'"
-          >Изменить аватар
+          >Изменить <br> аватар
           </button>
           <br><br>
             <div class="card mb-4">
@@ -18,6 +18,7 @@
                 </div>
             </div>
           <button id="edit-patient-btn" class="btn btn-primary">Изменить пациента</button>
+          <h3 style='color: #1334bb;'><?= $message ?? '';?></h3>
             <form id="edit-patient-form" style='display: none' method='post'>
               <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
               <div class="mb-3">

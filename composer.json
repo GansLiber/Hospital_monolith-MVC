@@ -15,7 +15,9 @@
         "illuminate/database": "8.x-dev",
         "illuminate/events": "8.x-dev",
         "nikic/fast-route": "^2.0@dev",
-      "ext-http": "*"
+        "gansliber/collect": "dev-master",
+        "gansliber/validator": "dev-main"
+
     },
     "autoload": {
         "psr-4": {

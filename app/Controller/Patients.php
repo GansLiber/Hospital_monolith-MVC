@@ -5,7 +5,7 @@ namespace Controller;
 use Model\Patient;
 use Model\User;
 use Src\Request;
-use Src\Validator\Validator;
+use Validator\Validator;
 use Src\View;
 
 class Patients

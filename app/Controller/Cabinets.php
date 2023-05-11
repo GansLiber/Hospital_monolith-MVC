@@ -5,7 +5,7 @@ namespace Controller;
 use Model\Cabinet;
 use Model\Patient;
 use Src\Request;
-use Src\Validator\Validator;
+use Validator\Validator;
 use Src\View;
 
 class Cabinets

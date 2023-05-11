@@ -6,6 +6,7 @@ use Model\Appointment;
 use Src\Request;
 use Model\Patient;
 use Src\View;
+use Validator\Validator;
 
 class PatientCabinet
 {
@@ -15,6 +16,23 @@ class PatientCabinet
         $patient = Patient::where('id_patient', $request->id)->first();
 
         if ($request->method ==='POST'){
+            $validator = new Validator($request->all(), [
+                'name' => ['required','letter'],
+                'surname'=>['required','letter'],
+                'patronymic'=>['required','letter'],
+            ], [
+                'required' => 'Поле :field пусто',
+                'letter' => 'Поле :field Доллжно содержать только буквы и тире',
+            ]);
+            if($validator->fails()){
+                $message = json_encode($validator->errors(), JSON_UNESCAPED_UNICODE);
+                return new View('site.patientCabinet', [
+                        'message' => $message,
+                        'patient'=>$patient,
+                        'patientAppointments'=>$patientAppointments
+                    ]);
+            }
+
             $udatePatient = [
                 'name'=>$request->get('name'),
                 'surname'=>$request->get('surname'),
@@ -43,7 +61,7 @@ class PatientCabinet
                     echo 'Файл успешно загружен';
 //                    echo '<pre>'; print_r($_FILES);echo '</pre>'; die();
                     $fileName[] = [
-                        'avatar' => '/MCVphpPractice/public/images/' . $_FILES['filename']['name']
+                        'avatar' => $_FILES['filename']['name']
                     ];
                     if(Patient::where('id_patient', $request->id)->update($fileName[0])){
                         app()->route->redirect('/patientCabinet?id=' . $request->id);
